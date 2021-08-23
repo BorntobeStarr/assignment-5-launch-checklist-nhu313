@@ -45,6 +45,7 @@ function formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue
     // alert the user that must enter valid input
 
 
+
   // set the list.style.visibility = 'visible'
   // get the pilot status, update the inner HTML to say `Pilot ${pilotValue} is ready for launch`
   // get the copilot status, update the inner HTML to say `CoPilot ${copilotValue} is ready for launch`
@@ -65,14 +66,16 @@ async function myFetch() {
 
   planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) {
       // get the json from the response
-        });
+      planetsReturned = await planetsReturned.json();
 
+        });
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
   // randomly pick a planet from the array
   // Math random for index
+  return Math.floor(Math.random()* planets.length);
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
