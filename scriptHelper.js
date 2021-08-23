@@ -6,19 +6,19 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
   // set the inner HTML to this
   // fill in the information that is passed in
    // Here is the HTML formatting for our mission target div.
-   /*
-    `
+   
+   const div = document.getElementById('missionTarget');
+   div.innerHTML = `
                 <h2>Mission Destination</h2>
                 <ol>
                     <li>Name: ${name}</li>
-                    <li>Diameter: </li>
+                    <li>Diameter: ${diameter} </li>
                     <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
+                    <li>Distance from Earth:${distance} </li>
+                    <li>Number of Moons:${moons} </li>
                 </ol>
-                <img src="">
-                `
-   */
+                <img src="${imageUrl}">
+                `;
 }
 
 function validateInput(testInput) {
@@ -28,6 +28,13 @@ function validateInput(testInput) {
     // return 'Not a Number'
   // else
     // return 'Is a Number'
+if (testInput === Number){
+  return "This is a Number"
+} else if (isNaN(testInput)=== true){
+  return "Not a Number";
+} else {
+  return "Empty";
+}
 }
 
 function formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue, cargoLevelValue) {
