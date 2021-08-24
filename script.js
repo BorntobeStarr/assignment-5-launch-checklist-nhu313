@@ -11,7 +11,8 @@ const { myFetch, pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
    listedPlanetsResponse.then(function (result) {
        listedPlanets = result;
-       console.log(listedPlanets); }).then(function () {
+       console.log(listedPlanets); })
+       .then(function () {
        console.log(listedPlanets);
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
       //  const planet = pickPlanet(listedPlanets)
@@ -27,7 +28,7 @@ const { myFetch, pickPlanet, addDestinationInfo } = require("./scriptHelper");
             planet.imageUrl
         );
         console.log(planet);
-
+       });
 
     document.getElementById("faultyItems").style.visibility = 'hidden';
    // get the form
