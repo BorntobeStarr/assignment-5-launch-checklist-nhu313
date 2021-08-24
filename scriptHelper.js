@@ -1,5 +1,5 @@
 // Write your helper functions here!
-var document = window.document;
+var document = window.document; /* @FEEDBACK: Great idea, but it breaks the browser's implementation. Remove line */
 // const fetch = require("node-fetch");
 require('isomorphic-fetch');
 
@@ -47,10 +47,13 @@ function formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue
     // alert user that they need to fill out all the fields alert('message')
   // check if fuelLevelValue and cargoLevelValue are not numbers
     // alert the user that must enter valid input
+  /* @FEEDBACK: Personally I think it's easier and cleaner to pass the string into the function then to call `.value` here.
+  You need to use `validateInput` see Nhu's comment on line 46. */
 if (
   pilotValue.value === '' || copilotValue.value === '' || 
   fuelLevelValue.value === '' || cargoLevelValue === '')
   {
+    /* @FEEDBACK: This should be an `alert` */
     console.log("Please fill out all of the fields before submitting!");
     
   } else if (isNaN(fuelLevelValue.value) || isNaN(cargoLevelValue.value)){
@@ -70,6 +73,8 @@ if (
   // check if the fuel level is less 10,000
     // change launchStatus to "Shuttle not ready for launch", and color to red
     // change the fuelStatus to "Fuel level too low for launch"
+  /* @FEEDBACK: Nice work dealing with fuel level and cargo level seperately. Like what you did for `highCargoLevel` you
+  don't need to check to see if `lowFuelLevel` is equal to `true`. */
   let lowFuelLevel = fuelLevelValue.value <10000;
     if (lowFuelLevel === true){
       alert("Fuel to Low!");
@@ -96,12 +101,14 @@ if (
     // if both fuel and cargo are good
       // change the launchStatus to "Shuttle is Ready for Launch" and color to green
   if (!lowFuelLevel && !highCargoLevel){
+    /* @FEEDBACK: Assign `document.getElementById("launchStatus")` so you don't have to traverse the DOM twice. */
     document.getElementById("launchStatus").innerHTML = 
       "Shuttle is Ready for Launch";
     document.getElementById("launchStatus").style.color = green
     //Fuel level pass code:
     document.getElementById("fuelStatus").innerHTML = 
     "Fuel level has passed";
+    /* @FEEDBACK: Only `launchStatus` should change color */
     document.getElementById("fuelStatus").style.color = "green";
     //CARGO MASS PASS CODE:
     document.getElementById("cargoStatus").innerHTML = 
