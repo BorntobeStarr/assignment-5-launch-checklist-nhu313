@@ -48,13 +48,11 @@ if (
   pilotValue.value === '' || copilotValue.value === '' || 
   fuelLevelValue.value === '' || cargoLevelValue === '')
   {
-    alert ("Please fill out all of the fields before submitting!");
-    // document.getElementById("pilotStatus").style.visibility = 'hidden';
-    // document.getElementById("copilotStatus").style.visibility = 'hidden';
+    alert("Please fill out all of the fields before submitting!");
+    
   } else if (isNaN(fuelLevelValue.value) || isNaN(cargoLevelValue.value)){
     alert("User must enter valid input");
-    // document.getElementById("pilotStatus").style.visibility = 'hidden';
-    // document.getElementById("copilotStatus").style.visibility = 'hidden';
+  
   } 
         // set the list.style.visibility = 'visible'
     else {
@@ -71,7 +69,7 @@ if (
     // change the fuelStatus to "Fuel level too low for launch"
   let lowFuelLevel = fuelLevelValue.value <10000;
     if (lowFuelLevel === true){
-      alert ("Fuel to Low!");
+      alert("Fuel to Low!");
       document.getElementById("fuelStatus").style.visibility = "visable";
       document.getElementById("fuelStatus").innerHTML = 
           "Fuel level too low for launch";
@@ -113,19 +111,19 @@ if (
 
 async function myFetch() {
     let planetsReturned;
+planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json');
 
-  planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) {
-      // get the json from the response
-      return response.json();
+planetsReturned =await planetsReturned.json();
 
-        });
+return planetsReturned;
   
 }
 
 function pickPlanet(planets) {
   // randomly pick a planet from the array
   // Math random for index
-  return Math.floor(Math.random()* planets.length);
+  let index =  Math.floor(Math.random()* planets.length)
+  return planets[index];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
