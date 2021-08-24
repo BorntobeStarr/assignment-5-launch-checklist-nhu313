@@ -1,5 +1,9 @@
 // Write your helper functions here!
+var document = window.document;
+// const fetch = require("node-fetch");
 require('isomorphic-fetch');
+
+
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
   // get the missionTarget div
@@ -48,10 +52,10 @@ if (
   pilotValue.value === '' || copilotValue.value === '' || 
   fuelLevelValue.value === '' || cargoLevelValue === '')
   {
-    alert("Please fill out all of the fields before submitting!");
+    console.log("Please fill out all of the fields before submitting!");
     
   } else if (isNaN(fuelLevelValue.value) || isNaN(cargoLevelValue.value)){
-    alert("User must enter valid input");
+    window.alert("User must enter valid input");
   
   } 
         // set the list.style.visibility = 'visible'
@@ -69,7 +73,7 @@ if (
     // change the fuelStatus to "Fuel level too low for launch"
   let lowFuelLevel = fuelLevelValue.value <10000;
     if (lowFuelLevel === true){
-      alert("Fuel to Low!");
+      window.alert("Fuel to Low!");
       document.getElementById("fuelStatus").style.visibility = "visable";
       document.getElementById("fuelStatus").innerHTML = 
           "Fuel level too low for launch";
