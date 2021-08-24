@@ -22,19 +22,20 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
+  let convertToNum = Number(testInput);
   //check if the test Input is empty
     // if it is, return 'Empty'
   // check if it's not a number isNaN
     // return 'Not a Number'
   // else
     // return 'Is a Number'
-if (testInput === Number){
-  return "This is a Number"
-} else if (isNaN(testInput)=== true){
-  return "Not a Number";
-} else {
+if (testInput === "") {
   return "Empty";
-}
+} else if (!isNaN(convertToNum)){
+  return 'Is a Number'
+}else {
+  return "Not a Number";
+};
 }
 
 function formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue, cargoLevelValue) {
@@ -44,10 +45,16 @@ function formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue
   // check if fuelLevelValue and cargoLevelValue are not numbers
     // alert the user that must enter valid input
 if (
-  pilotValue.value === "" || copilotValue.value === "" || fuelLevelValue.value === "" || cargoLevelValue === ""){
-    alert("Please fill out all of the fields before submitting!");
+  pilotValue.value === '' || copilotValue.value === '' || 
+  fuelLevelValue.value === '' || cargoLevelValue === '')
+  {
+    alert ("Please fill out all of the fields before submitting!");
+    // document.getElementById("pilotStatus").style.visibility = 'hidden';
+    // document.getElementById("copilotStatus").style.visibility = 'hidden';
   } else if (isNaN(fuelLevelValue.value) || isNaN(cargoLevelValue.value)){
     alert("User must enter valid input");
+    // document.getElementById("pilotStatus").style.visibility = 'hidden';
+    // document.getElementById("copilotStatus").style.visibility = 'hidden';
   } 
         // set the list.style.visibility = 'visible'
     else {
@@ -64,6 +71,7 @@ if (
     // change the fuelStatus to "Fuel level too low for launch"
   let lowFuelLevel = fuelLevelValue.value <10000;
     if (lowFuelLevel === true){
+      alert ("Fuel to Low!");
       document.getElementById("fuelStatus").style.visibility = "visable";
       document.getElementById("fuelStatus").innerHTML = 
           "Fuel level too low for launch";
@@ -90,7 +98,6 @@ if (
     document.getElementById("launchStatus").innerHTML = 
       "Shuttle is Ready for Launch";
     document.getElementById("launchStatus").style.color = green
-
     //Fuel level pass code:
     document.getElementById("fuelStatus").innerHTML = 
     "Fuel level has passed";
@@ -109,10 +116,10 @@ async function myFetch() {
 
   planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then(function (response) {
       // get the json from the response
-      planetsReturned = await planetsReturned.json();
+      return response.json();
 
         });
-    return planetsReturned;
+  
 }
 
 function pickPlanet(planets) {

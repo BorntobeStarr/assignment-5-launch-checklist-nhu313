@@ -16,7 +16,17 @@ window.addEventListener("load", function() {
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
       //  const planet = pickPlanet(listedPlanets)
       //  addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl)
-   })
+    let index = pickPlanet(listedPlanets);
+        addDestinationInfo(
+            listedPlanets[index].name,
+            listedPlanets[index].diameter,
+            listedPlanets[index].star,
+            listedPlanets[index].distance,
+            listedPlanets[index].moons,
+            listedPlanets[index].imageUrl
+        );
+        console.log(listedPlanets[index], index);
+    })
 
 
    // get the form
@@ -29,6 +39,11 @@ window.addEventListener("load", function() {
 
       // let list = document.getElementById('faultyItems');
       // formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue, cargoLevelValue)
-
+      let list = document.getElementById('faultyItems');
+      form.addEventListener("submit", function (event) {
+        formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
+        alert("all field required");
+        event.preventDefault();
+      });
 
 });
