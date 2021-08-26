@@ -46,7 +46,8 @@ if
     } else if (isNaN(fuelLevelValue) || isNaN(cargoLevelValue)){
     alert("User must enter valid input");
 
-      } else if (lowFuelLevel === true){
+      } else if (lowFuelLevel === true && highCargoLevel === false){
+        // Fuel status bad
         document.getElementById("fuelStatus").style.visibility = 'visible';
         document.getElementById("fuelStatus").innerHTML = `Fuel level too low for launch`;
         document.getElementById("fuelStatus").style.color = "red";
@@ -57,9 +58,14 @@ if
                // get the copilot status good
                  document.getElementById("copilotStatus").style.visibility = 'visible';
                  document.getElementById("copilotStatus").innerHTML = `CoPilot ${copilotValue} is ready for launch`;
-          alert("Fuel to low!");
+              // Cargo Status Good
+              document.getElementById("cargoStatus").style.visibility = 'visible';
+              document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`;
+              alert("Fuel to low!");
 
-      }  else if (highCargoLevel === true){
+
+      }  else if (lowFuelLevel === false && highCargoLevel === true){
+        //cargo bad
         document.getElementById("cargoStatus").style.visibility = 'visible';
         document.getElementById("cargoStatus").innerHTML =  `Cargo level too high for launch`;
         document.getElementById("cargoStatus").style.color = "red";
@@ -75,7 +81,24 @@ if
                  document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`;
                  alert("Cargo level to high! ");
 
-      }  else {
+      }  else if (lowFuelLevel === true && highCargoLevel === true) {
+        // Fuel status bad
+        document.getElementById("fuelStatus").style.visibility = 'visible';
+        document.getElementById("fuelStatus").innerHTML = `Fuel level too low for launch`;
+        document.getElementById("fuelStatus").style.color = "red";
+        //cargo bad
+        document.getElementById("cargoStatus").style.visibility = 'visible';
+        document.getElementById("cargoStatus").innerHTML =  `Cargo level too high for launch`;
+        document.getElementById("cargoStatus").style.color = "red";
+        document.querySelector("h2").style.color = "red";
+                 // get the PILOT status good
+                 document.getElementById("pilotStatus").style.visibility = 'visible';
+                 document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotValue} is ready for launch`;
+               // get the copilot status good
+                 document.getElementById("copilotStatus").style.visibility = 'visible';
+                 document.getElementById("copilotStatus").innerHTML = `CoPilot ${copilotValue} is ready for launch`;
+
+      }else {
                  // get the PILOT status good
                  document.getElementById("pilotStatus").style.visibility = 'visible';
                  document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotValue} is ready for launch`;
