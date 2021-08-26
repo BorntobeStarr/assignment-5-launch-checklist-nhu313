@@ -67,7 +67,7 @@ if
       }  else if (lowFuelLevel === false && highCargoLevel === true){
         //cargo bad
         document.getElementById("cargoStatus").style.visibility = 'visible';
-        document.getElementById("cargoStatus").innerHTML =  `Cargo level too high for launch`;
+        document.getElementById("cargoStatus").innerHTML =  `Cargo mass too heavy for launch`;
         document.getElementById("cargoStatus").style.color = "red";
         document.querySelector("h2").style.color = "red";
                  // get the PILOT status good
@@ -88,7 +88,7 @@ if
         document.getElementById("fuelStatus").style.color = "red";
         //cargo bad
         document.getElementById("cargoStatus").style.visibility = 'visible';
-        document.getElementById("cargoStatus").innerHTML =  `Cargo level too high for launch`;
+        document.getElementById("cargoStatus").innerHTML =  `Cargo mass too heavy for launch`;
         document.getElementById("cargoStatus").style.color = "red";
         document.querySelector("h2").style.color = "red";
                  // get the PILOT status good
