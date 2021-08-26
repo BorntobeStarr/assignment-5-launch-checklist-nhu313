@@ -87,7 +87,7 @@ if
                  document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`;
               // Cargo Status Good
               document.getElementById("cargoStatus").style.visibility = 'visible';
-              document.getElementById("cargoStatus").innerHTML = `Fuel level high enough for launch`;
+              document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`;
 
         }
 
@@ -96,10 +96,6 @@ if
     //Launch Status Pass:
     launchStatusDom.innerHTML = "Shuttle is Ready for Launch";
     launchStatusDom.style.color = "green";
-    // //Fuel level pass code:
-    // document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
-    // //CARGO MASS PASS CODE:
-    // document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
   }
 
 //Closing bracket for Funtion
