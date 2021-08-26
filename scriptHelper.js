@@ -1,5 +1,4 @@
 // Write your helper functions here!
-var document = window.document;
 // const fetch = require("node-fetch");
 require('isomorphic-fetch');
 
@@ -48,10 +47,10 @@ function formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue
   // check if fuelLevelValue and cargoLevelValue are not numbers
     // alert the user that must enter valid input
 if (
-  pilotValue.value === '' || copilotValue.value === '' || 
-  fuelLevelValue.value === '' || cargoLevelValue === '')
+  (validateInput(pilotValue.value) === '' || validateInput(copilotValue.value) === '' || 
+  validateInput(fuelLevelValue.value) === '' || validateInput(cargoLevelValue.value) === '')
   {
-    console.log("Please fill out all of the fields before submitting!");
+    alert("Please fill out all of the fields before submitting!");
     
   } else if (isNaN(fuelLevelValue.value) || isNaN(cargoLevelValue.value)){
     alert("User must enter valid input");
@@ -71,7 +70,7 @@ if (
     // change launchStatus to "Shuttle not ready for launch", and color to red
     // change the fuelStatus to "Fuel level too low for launch"
   let lowFuelLevel = fuelLevelValue.value <10000;
-    if (lowFuelLevel === true){
+    if (lowFuelLevel){
       alert("Fuel to Low!");
       document.getElementById("fuelStatus").style.visibility = "visable";
       document.getElementById("fuelStatus").innerHTML = 
@@ -95,18 +94,19 @@ if (
 
     // if both fuel and cargo are good
       // change the launchStatus to "Shuttle is Ready for Launch" and color to green
+
+    let launchStatusDom= document.getElementById("launchStatus");
+
   if (!lowFuelLevel && !highCargoLevel){
-    document.getElementById("launchStatus").innerHTML = 
+    launchStatusDom.innerHTML = 
       "Shuttle is Ready for Launch";
-    document.getElementById("launchStatus").style.color = green
+      launchStatusDom.style.color = green
     //Fuel level pass code:
     document.getElementById("fuelStatus").innerHTML = 
     "Fuel level has passed";
-    document.getElementById("fuelStatus").style.color = "green";
     //CARGO MASS PASS CODE:
     document.getElementById("cargoStatus").innerHTML = 
     "Cargo level has passed";
-  document.getElementById("cargoStatus").style.color = "green";
   }
 
 
