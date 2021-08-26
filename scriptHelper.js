@@ -31,7 +31,12 @@ if (testInput === "") {
 }
 }
 
+
+
 function formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue, cargoLevelValue) {
+  let lowFuelLevel = fuelLevelValue <10000;
+  let highCargoLevel = cargoLevelValue >10000; 
+  let launchStatusDom= document.getElementById("launchStatus");
 
 if 
   (validateInput(pilotValue) === 'Empty' || validateInput(copilotValue) === 'Empty' || 
@@ -39,44 +44,32 @@ if
     alert("Please fill out all of the fields before submitting!");
     } else if (isNaN(fuelLevelValue) || isNaN(cargoLevelValue)){
     alert("User must enter valid input");
-  } 
+      } else if (lowFuelLevel === true){
+        alert("Fuel to low!");
+        document.getElementById("fuelStatus").style.visibility = 'visable';
+        document.getElementById("fuelStatus").innerHTML = 
+          "Fuel level too low for launch";
+        document.getElementById("fuelStatus").style.color = "red";
+        document.querySelector("h2").style.color = "red";
 
-    else {
-  
-      document.getElementById("pilotStatus").style.visibility = 'visible';
-      document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotValue} is ready for launch`;
-    // get the copilot status, update the inner HTML to say `CoPilot ${copilotValue} is ready for launch`
-      document.getElementById("copilotStatus").style.visibility = 'visible';
-      document.getElementById("copilotStatus").innerHTML = `CoPilot ${copilotValue} is ready for launch`;
-    }
+      }  else if (highCargoLevel === true){
+        alert("Cargo level to high! ");
+        document.getElementById("cargoStatus").style.visibility = 'visable';
+        document.getElementById("cargoStatus").innerHTML = 
+          "Cargo level too high for launch";
+        document.getElementById("cargoStatus").style.color = "red";
+        document.querySelector("h2").style.color = "red";
+      }  else {
+          document.getElementById("pilotStatus").style.visibility = 'visible';
+          document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotValue} is ready for launch`;
+        // get the copilot status, update the inner HTML to say `CoPilot ${copilotValue} is ready for launch`
+          document.getElementById("copilotStatus").style.visibility = 'visible';
+          document.getElementById("copilotStatus").innerHTML = `CoPilot ${copilotValue} is ready for launch`;
+        }
 
-
-  let lowFuelLevel = fuelLevelValue.value <10000;
-    if (lowFuelLevel){
-      alert("Fuel to Low!");
-      document.getElementById("fuelStatus").style.visibility = "visable";
-      document.getElementById("fuelStatus").innerHTML = 
-        "Fuel level too low for launch";
-      document.getElementById("fuelStatus").style.color = "red";
-      document.querySelector("h2").style.color = "red";
-    }
-
-
-
-  let highCargoLevel = cargoLevelValue.value > 10000; 
-    if (highCargoLevel){
-      document.getElementById("cargoStatus").style.visibility = "visable";
-      document.getElementById("cargoStatus").innerHTML = 
-        "Cargo level too high for launch";
-      document.getElementById("cargoStatus").style.color = "red";
-      document.querySelector("h2").style.color = "red";
-    }
-
-
-
-    let launchStatusDom= document.getElementById("launchStatus");
 
   if (!lowFuelLevel && !highCargoLevel){
+    //Launch Status Pass:
     launchStatusDom.innerHTML = "Shuttle is Ready for Launch";
     launchStatusDom.style.color = "green";
     //Fuel level pass code:
