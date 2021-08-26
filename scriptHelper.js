@@ -34,8 +34,8 @@ if (testInput === "") {
 function formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue, cargoLevelValue) {
 
 if 
-  (validateInput(pilotValue) === '' || validateInput(copilotValue) === '' || 
-  validateInput(fuelLevelValue) === '' || validateInput(cargoLevelValue) === '') {
+  (validateInput(pilotValue) === 'Empty' || validateInput(copilotValue) === 'Empty' || 
+  validateInput(fuelLevelValue) === 'Empty' || validateInput(cargoLevelValue) === 'Empty') {
     alert("Please fill out all of the fields before submitting!");
     } else if (isNaN(fuelLevelValue) || isNaN(cargoLevelValue)){
     alert("User must enter valid input");
@@ -77,15 +77,12 @@ if
     let launchStatusDom= document.getElementById("launchStatus");
 
   if (!lowFuelLevel && !highCargoLevel){
-    launchStatusDom.innerHTML = 
-      "Shuttle is Ready for Launch";
-      launchStatusDom.style.color = "green";
+    launchStatusDom.innerHTML = "Shuttle is Ready for Launch";
+    launchStatusDom.style.color = "green";
     //Fuel level pass code:
-    document.getElementById("fuelStatus").innerHTML = 
-    "Fuel level has passed";
+    document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
     //CARGO MASS PASS CODE:
-    document.getElementById("cargoStatus").innerHTML = 
-    "Cargo level has passed";
+    document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
   }
 
 //Closing bracket for Funtion
