@@ -37,7 +37,7 @@ if (testInput === "") {
   return 'Is a Number'
 }else {
   return "Not a Number";
-};
+}
 }
 
 function formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue, cargoLevelValue) {
@@ -46,15 +46,12 @@ function formSubmission(document, list, pilotValue, copilotValue, fuelLevelValue
     // alert user that they need to fill out all the fields alert('message')
   // check if fuelLevelValue and cargoLevelValue are not numbers
     // alert the user that must enter valid input
-if (
-  (validateInput(pilotValue.value) === '' || validateInput(copilotValue.value) === '' || 
-  validateInput(fuelLevelValue.value) === '' || validateInput(cargoLevelValue.value) === '')
-  {
+if 
+  (validateInput(pilotValue) === '' || validateInput(copilotValue) === '' || 
+  validateInput(fuelLevelValue) === '' || validateInput(cargoLevelValue) === '') {
     alert("Please fill out all of the fields before submitting!");
-    
-  } else if (isNaN(fuelLevelValue.value) || isNaN(cargoLevelValue.value)){
+    } else if (isNaN(fuelLevelValue) || isNaN(cargoLevelValue)){
     alert("User must enter valid input");
-  
   } 
         // set the list.style.visibility = 'visible'
     else {
@@ -109,7 +106,7 @@ if (
     "Cargo level has passed";
   }
 
-
+//Closing bracket for Funtion
 }
 
 async function myFetch() {
