@@ -57,11 +57,15 @@ if
                  document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotValue} is ready for launch`;
                // get the copilot status good
                  document.getElementById("copilotStatus").style.visibility = 'visible';
-                 document.getElementById("copilotStatus").innerHTML = `CoPilot ${copilotValue} is ready for launch`;
+                 document.getElementById("copilotStatus").innerHTML = 
+                 `Co-pilot ${copilotValue} is ready for launch`;
               // Cargo Status Good
               document.getElementById("cargoStatus").style.visibility = 'visible';
               document.getElementById("cargoStatus").innerHTML = `Cargo mass low enough for launch`;
               alert("Fuel to low!");
+                //Launch Status 
+                launchStatusDom.innerHTML = "Shuttle Not Ready for Launch";
+                launchStatusDom.style.color = "red";
 
 
       }  else if (lowFuelLevel === false && highCargoLevel === true){
@@ -75,11 +79,14 @@ if
                  document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotValue} is ready for launch`;
                // get the copilot status good
                  document.getElementById("copilotStatus").style.visibility = 'visible';
-                 document.getElementById("copilotStatus").innerHTML = `CoPilot ${copilotValue} is ready for launch`;
+                 document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilotValue} is ready for launch`;
               // Fuel status is good
                  document.getElementById("fuelStatus").style.visibility = 'visible';
                  document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`;
                  alert("Cargo level to high! ");
+              //Launch Status 
+                launchStatusDom.innerHTML = "Shuttle Not Ready for Launch";
+                launchStatusDom.style.color = "red";
 
       }  else if (lowFuelLevel === true && highCargoLevel === true) {
         // Fuel status bad
@@ -96,15 +103,17 @@ if
                  document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotValue} is ready for launch`;
                // get the copilot status good
                  document.getElementById("copilotStatus").style.visibility = 'visible';
-                 document.getElementById("copilotStatus").innerHTML = `CoPilot ${copilotValue} is ready for launch`;
-
+                 document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilotValue} is ready for launch`;
+               //Launch Status 
+                launchStatusDom.innerHTML = "Shuttle Not Ready for Launch";
+                launchStatusDom.style.color = "red";
       }else {
                  // get the PILOT status good
                  document.getElementById("pilotStatus").style.visibility = 'visible';
                  document.getElementById("pilotStatus").innerHTML = `Pilot ${pilotValue} is ready for launch`;
                // get the copilot status good
                  document.getElementById("copilotStatus").style.visibility = 'visible';
-                 document.getElementById("copilotStatus").innerHTML = `CoPilot ${copilotValue} is ready for launch`;
+                 document.getElementById("copilotStatus").innerHTML = `Co-pilot ${copilotValue} is ready for launch`;
               // Fuel status is good
                  document.getElementById("fuelStatus").style.visibility = 'visible';
                  document.getElementById("fuelStatus").innerHTML = `Fuel level high enough for launch`;
